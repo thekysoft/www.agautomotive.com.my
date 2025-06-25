@@ -1,12 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investment Opportunity - Amazing G Automotive Dealership Expansion</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Amazing G Automotive - Investment Opportunity</title>
+    <meta name="description" content="Join Amazing G Automotive's proven 15-year track record in expanding into Malaysia's thriving used car dealership market">
+    
+    <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
+        :root {
+            --foreground-rgb: 0, 0, 0;
+            --background-start-rgb: 214, 219, 220;
+            --background-end-rgb: 255, 255, 255;
+        }
+
+        body {
+            color: rgb(var(--foreground-rgb));
+            background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -17,13 +32,13 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
         }
-
-            .modal.show {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         .modal-content {
             background: white;
             padding: 2rem;
@@ -48,7 +63,7 @@
             border-radius: 0.5rem;
             margin: 1rem 0;
         }
-
+        
         .progress-bar {
             width: 17%;
             height: 12px;
@@ -56,7 +71,7 @@
             border-radius: 6px;
             transition: width 0.3s ease;
         }
-
+        
         .toast {
             position: fixed;
             top: 20px;
@@ -69,22 +84,22 @@
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
-
-            .toast.show {
-                transform: translateX(0);
-            }
-
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
         .gradient-bg {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
-
+        
         .card {
             background: white;
             border-radius: 0.5rem;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
             border: 1px solid #e2e8f0;
         }
-
+        
         .btn-primary {
             background: #3b82f6;
             color: white;
@@ -94,12 +109,16 @@
             cursor: pointer;
             font-weight: 500;
             transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-
-            .btn-primary:hover {
-                background: #2563eb;
-            }
-
+        
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        
         .btn-secondary {
             background: #6b7280;
             color: white;
@@ -109,12 +128,16 @@
             cursor: pointer;
             font-weight: 500;
             transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-
-            .btn-secondary:hover {
-                background: #4b5563;
-            }
-
+        
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        
         .btn-outline {
             background: transparent;
             color: #374151;
@@ -124,42 +147,67 @@
             cursor: pointer;
             font-weight: 500;
             transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-outline:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
         }
 
-            .btn-outline:hover {
-                background: #f9fafb;
-                border-color: #9ca3af;
-            }
+        .btn-medium {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.875rem;
+        }
 
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 2rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 165, 0, 0.08) 0%, rgba(255, 140, 0, 0.08) 100%);
+            z-index: 1;
         }
 
         .company-logo {
-            height: 80px;
+            height: 180px;
             width: auto;
+            max-width: 450px;
             object-fit: contain;
+            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.25));
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
         }
 
-        .investor-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #e5e7eb;
+        .company-logo:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.3));
         }
 
-        .investor-card {
-            transition: transform 0.2s, box-shadow 0.2s;
+        .logo-text {
+            position: relative;
+            z-index: 2;
         }
-
-            .investor-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
 
         .sidebar-sticky {
             position: sticky;
@@ -170,9 +218,14 @@
 
         @media (max-width: 1024px) {
             .company-logo {
-                height: 60px;
+                height: 160px;
+                max-width: 380px;
+                padding: 1.25rem;
             }
-
+            .logo-container {
+                padding: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
             .sidebar-sticky {
                 position: relative;
                 top: 0;
@@ -181,113 +234,78 @@
         }
 
         @media (max-width: 768px) {
-            .investor-avatar {
-                width: 40px;
-                height: 40px;
-            }
-
-            /* Mobile layout - single column */
             .mobile-container {
                 display: flex !important;
                 flex-direction: column !important;
             }
-
+            
             .mobile-sidebar {
-                display: none !important; /* Hide desktop sidebar on mobile */
+                display: none !important;
             }
-
+            
             .mobile-main {
                 order: 1;
                 width: 100%;
             }
-
-            /* Mobile Investment Progress - show in main content */
+            
             .mobile-investment-progress {
                 display: block !important;
-                order: 2; /* Show after main header content */
+                order: 2;
                 margin: 2rem 0;
             }
-
-            /* Mobile Meeting & Documents - show at the end */
+            
+            .mobile-returns-privileges {
+                display: block !important;
+                order: 3;
+                margin: 2rem 0;
+            }
+            
+            .mobile-investment-details {
+                display: block !important;
+                order: 4;
+                margin: 2rem 0;
+            }
+            
             .mobile-meeting-docs {
                 display: block !important;
-                order: 3; /* Show at the very end */
+                order: 5;
                 margin-top: 2rem;
             }
-
-            /* Hide desktop versions on mobile */
+            
             .desktop-only {
                 display: none !important;
             }
-
-            /* Compact mobile styles */
+            
             .mobile-compact .card {
                 padding: 1rem !important;
             }
-
+            
             .mobile-compact h3 {
                 font-size: 1rem !important;
                 margin-bottom: 0.75rem !important;
             }
-
-            .mobile-compact .text-lg {
-                font-size: 1rem !important;
-            }
-
-            .mobile-compact .text-xl {
-                font-size: 1.125rem !important;
-            }
-
-            .mobile-compact .text-2xl {
-                font-size: 1.25rem !important;
-            }
-
-            .mobile-compact .text-4xl {
-                font-size: 1.875rem !important;
-            }
-
-            /* Mobile progress circle */
+            
             .mobile-progress-circle {
                 width: 100px !important;
                 height: 100px !important;
             }
-
-            /* Mobile stats grid */
+            
             .mobile-stats {
                 grid-template-columns: 1fr 1fr !important;
                 gap: 0.75rem !important;
             }
-
-                .mobile-stats > div {
-                    padding: 0.75rem !important;
-                }
-
-            /* Mobile buttons */
+            
             .mobile-btn {
                 padding: 0.75rem 1rem !important;
                 font-size: 0.875rem !important;
             }
-
-            /* Mobile text adjustments */
+            
             .mobile-text-sm {
                 font-size: 0.75rem !important;
             }
-
+            
             .mobile-text-xs {
                 font-size: 0.625rem !important;
-            }
-
-            /* Main content mobile adjustments */
-            .mobile-main-content h1 {
-                font-size: 2rem !important;
-            }
-
-            .mobile-main-content .text-xl {
-                font-size: 1.125rem !important;
-            }
-
-            .mobile-main-content .card {
-                padding: 1.25rem !important;
             }
 
             .business-plan-modal {
@@ -299,447 +317,324 @@
                 max-height: 60vh;
                 font-size: 0.875rem;
             }
+
+            .company-logo {
+                height: 140px;
+                max-width: 320px;
+                display: block;
+                margin: 0 auto;
+            }
+            
+            .logo-container {
+                padding: 2rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
-            /* Extra small mobile devices */
             .mobile-container {
                 padding: 1rem !important;
             }
-
+            
             .mobile-progress-circle {
                 width: 80px !important;
                 height: 80px !important;
             }
-
+            
             .mobile-compact .card {
                 padding: 0.75rem !important;
             }
-
+            
             .mobile-stats {
                 grid-template-columns: 1fr !important;
             }
+
+            .company-logo {
+                height: 120px;
+                max-width: 280px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .logo-container {
+                padding: 1.5rem;
+                text-align: center;
+            }
         }
 
-        /* Desktop-only styles */
         @media (min-width: 769px) {
             .mobile-investment-progress,
+            .mobile-returns-privileges,
+            .mobile-investment-details,
             .mobile-meeting-docs {
                 display: none !important;
             }
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen">
-    <div class="max-w-7xl mx-auto p-6 mobile-container">
-        <div class="grid lg:grid-cols-12 gap-6">
-            <!-- Left Sidebar - Investment Progress Only (Desktop) -->
-            <div class="lg:col-span-3 mobile-sidebar">
-                <div class="sidebar-sticky space-y-6 mobile-compact">
-                    <!-- Investment Progress Tracker -->
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                            <i class="fas fa-chart-line text-green-600"></i>
-                            Investment Progress
-                        </h3>
+<body>
+    <div class="gradient-bg min-h-screen">
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">
+            <span id="toast-message"></span>
+        </div>
 
-                        <!-- Animated Investment Counter -->
-                        <div class="text-center mb-6">
-                            <div class="relative">
-                                <div class="w-32 h-32 mx-auto mb-4">
-                                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                                        <!-- Background circle -->
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8" />
-                                        <!-- Progress circle -->
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="8"
-                                                stroke-dasharray="283" stroke-dashoffset="235"
-                                                class="transition-all duration-1000 ease-out" id="progressCircle" />
-                                    </svg>
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <div class="text-center">
-                                            <div class="text-2xl font-bold text-green-600" id="percentageCounter">17%</div>
-                                            <div class="text-xs text-gray-500">Funded</div>
+        <div class="max-w-7xl mx-auto p-6 mobile-container">
+            <div class="grid lg:grid-cols-12 gap-6">
+                <!-- Left Sidebar - Investment Progress Only (Desktop) -->
+                <div class="lg:col-span-3 mobile-sidebar">
+                    <div class="sidebar-sticky space-y-6 mobile-compact">
+                        <!-- Investment Progress Tracker -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <i class="fas fa-chart-line text-green-600"></i>
+                                Investment Progress
+                            </h3>
+
+                            <!-- Animated Investment Counter -->
+                            <div class="text-center mb-6">
+                                <div class="relative">
+                                    <div class="w-32 h-32 mx-auto mb-4">
+                                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                            <!-- Background circle -->
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8" />
+                                            <!-- Progress circle -->
+                                            <circle
+                                                id="progress-circle"
+                                                cx="50"
+                                                cy="50"
+                                                r="45"
+                                                fill="none"
+                                                stroke="#10b981"
+                                                stroke-width="8"
+                                                stroke-dasharray="283"
+                                                stroke-dashoffset="235"
+                                                class="transition-all duration-1000 ease-out"
+                                            />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div class="text-center">
+                                                <div id="progress-percentage" class="text-2xl font-bold text-green-600">17%</div>
+                                                <div class="text-xs text-gray-500">Funded</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Investment Stats Grid -->
-                            <div class="grid grid-cols-2 gap-4 mb-4">
-                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-3 rounded-lg text-center border border-green-200">
-                                    <div class="text-lg font-bold text-green-800" id="investorCounter">5</div>
-                                    <div class="text-xs text-green-600">Active Investors</div>
+                                <!-- Investment Stats Grid -->
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-3 rounded-lg text-center border border-green-200">
+                                        <div id="investor-count" class="text-lg font-bold text-green-800">5</div>
+                                        <div class="text-xs text-green-600">Active Investors</div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-3 rounded-lg text-center border border-blue-200">
+                                        <div class="text-lg font-bold text-blue-800">Open</div>
+                                        <div class="text-xs text-blue-600">Investment</div>
+                                    </div>
                                 </div>
-                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-3 rounded-lg text-center border border-blue-200">
-                                    <div class="text-lg font-bold text-blue-800">Open</div>
-                                    <div class="text-xs text-blue-600">Investment</div>
-                                </div>
-                            </div>
 
-                            <!-- Investment Amount Display -->
-                            <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg mb-4">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm text-gray-600">Current Funding</span>
-                                    <span class="text-sm text-gray-600">Goal</span>
+                                <!-- Investment Amount Display -->
+                                <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg mb-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm text-gray-600">Current Funding</span>
+                                        <span class="text-sm text-gray-600">Goal</span>
+                                    </div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span id="current-amount" class="text-xl font-bold text-green-600">RM 425,000</span>
+                                        <span class="text-lg font-semibold text-gray-700">RM 2.5M</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div
+                                            id="progress-bar"
+                                            class="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full transition-all duration-1000 ease-out"
+                                            style="width: 17%"
+                                        ></div>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between items-center mb-3">
-                                    <span class="text-xl font-bold text-green-600" id="currentAmount">RM 425,000</span>
-                                    <span class="text-lg font-semibold text-gray-700">RM 2.5M</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                                         style="width: 17%" id="fundingBar"></div>
-                                </div>
-                            </div>
 
-                            <!-- Recent Activity -->
-                            <div class="space-y-2">
-                                <h4 class="text-sm font-semibold text-gray-700 mb-2">Recent Activity</h4>
+                                <!-- Recent Activity -->
                                 <div class="space-y-2">
-                                    <div class="flex items-center gap-2 text-xs">
-                                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                        <span class="text-gray-600">New investor joined 2 days ago</span>
-                                    </div>
-                                    <div class="flex items-center gap-2 text-xs">
-                                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                        <span class="text-gray-600">RM 40,000 investment received</span>
-                                    </div>
-                                    <div class="flex items-center gap-2 text-xs">
-                                        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                        <span class="text-gray-600">Business plan updated</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Investment Momentum Indicator -->
-                            <div class="mt-4 p-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg border border-green-200">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fas fa-trending-up text-green-600"></i>
-                                        <span class="text-sm font-medium text-green-800">Investment Momentum</span>
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <div class="w-1 h-3 bg-green-400 rounded animate-pulse"></div>
-                                        <div class="w-1 h-4 bg-green-500 rounded animate-pulse" style="animation-delay: 0.2s"></div>
-                                        <div class="w-1 h-5 bg-green-600 rounded animate-pulse" style="animation-delay: 0.4s"></div>
-                                        <span class="text-xs text-green-700 ml-2">High</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Investment Summary -->
-                        <div class="mt-6 pt-4 border-t border-gray-200">
-                            <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
-                                <h4 class="font-semibold text-green-800 mb-3 text-center">Investment Summary</h4>
-                                <div class="space-y-2">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-green-700">Amount Collected:</span>
-                                        <span class="font-bold text-green-800">RM 425,000</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-green-700">Target Goal:</span>
-                                        <span class="font-bold text-green-800">RM 2,500,000</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-green-700">Progress:</span>
-                                        <span class="font-bold text-green-800">17%</span>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="w-full bg-green-200 rounded-full h-2">
-                                        <div class="bg-green-600 h-2 rounded-full" style="width: 17%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Join Investors CTA -->
-                        <div class="mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
-                            <h4 class="font-semibold mb-2 text-blue-800">Join Our Investors</h4>
-                            <p class="text-sm text-blue-700 mb-4">Be part of Malaysia's established automotive success story</p>
-                            <button class="btn-primary w-full" onclick="openModal('expressInterestModal')">
-                                <i class="fas fa-handshake mr-2"></i>
-                                Invest Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Content Area -->
-            <div class="lg:col-span-9 space-y-8 mobile-main mobile-main-content">
-                <!-- Header with Logo -->
-                <div class="text-center space-y-6">
-                    <!-- Logo Section -->
-                    <div class="logo-container">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-dark-4Zxjw0M1NZHTV0kRoijGmzEUVHOh05.png" alt="Amazing G Automotive Logo" class="company-logo">
-                    </div>
-
-                    <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
-                        Investment Opportunity
-                    </span>
-                    <h1 class="text-4xl font-bold text-gray-900">Used Car Dealership Expansion</h1>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Join Amazing G Automotive's proven 15-year track record in expanding into Malaysia's thriving used car dealership market
-                    </p>
-                </div>
-
-                <!-- Mobile Investment Progress (Hidden on Desktop) -->
-                <div class="mobile-investment-progress mobile-compact" style="display: none;">
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                            <i class="fas fa-chart-line text-green-600"></i>
-                            Investment Progress
-                        </h3>
-
-                        <!-- Animated Investment Counter -->
-                        <div class="text-center mb-6">
-                            <div class="relative">
-                                <div class="w-32 h-32 mx-auto mb-4 mobile-progress-circle">
-                                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                                        <!-- Background circle -->
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8" />
-                                        <!-- Progress circle -->
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="8"
-                                                stroke-dasharray="283" stroke-dashoffset="235"
-                                                class="transition-all duration-1000 ease-out" id="progressCircleMobile" />
-                                    </svg>
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <div class="text-center">
-                                            <div class="text-2xl font-bold text-green-600" id="percentageCounterMobile">17%</div>
-                                            <div class="text-xs text-gray-500 mobile-text-xs">Funded</div>
+                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Recent Activity</h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                            <span class="text-gray-600">New investor joined 2 days ago</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                            <span class="text-gray-600">RM 40,000 investment received</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                            <span class="text-gray-600">Business plan updated</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Investment Stats Grid -->
-                            <div class="grid grid-cols-2 gap-4 mb-4 mobile-stats">
-                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-3 rounded-lg text-center border border-green-200">
-                                    <div class="text-lg font-bold text-green-800" id="investorCounterMobile">5</div>
-                                    <div class="text-xs text-green-600 mobile-text-xs">Active Investors</div>
+                                <!-- Investment Momentum Indicator -->
+                                <div class="mt-4 p-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg border border-green-200">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-trending-up text-green-600"></i>
+                                            <span class="text-sm font-medium text-green-800">Investment Momentum</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-1 h-3 bg-green-400 rounded animate-pulse"></div>
+                                            <div class="w-1 h-4 bg-green-500 rounded animate-pulse" style="animation-delay: 0.2s"></div>
+                                            <div class="w-1 h-5 bg-green-600 rounded animate-pulse" style="animation-delay: 0.4s"></div>
+                                            <span class="text-xs text-green-700 ml-2">High</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-3 rounded-lg text-center border border-blue-200">
-                                    <div class="text-lg font-bold text-blue-800">Open</div>
-                                    <div class="text-xs text-blue-600 mobile-text-xs">Investment</div>
-                                </div>
-                            </div>
 
-                            <!-- Investment Amount Display -->
-                            <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-lg mb-4">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm text-gray-600 mobile-text-sm">Current Funding</span>
-                                    <span class="text-sm text-gray-600 mobile-text-sm">Goal</span>
+                                <!-- Investment Summary -->
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
+                                        <h4 class="font-semibold text-green-800 mb-3 text-center">Investment Summary</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm text-green-700">Amount Collected:</span>
+                                                <span class="font-bold text-green-800">RM 425,000</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm text-green-700">Target Goal:</span>
+                                                <span class="font-bold text-green-800">RM 2,500,000</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm text-green-700">Progress:</span>
+                                                <span class="font-bold text-green-800">17%</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="w-full bg-green-200 rounded-full h-2">
+                                                <div class="bg-green-600 h-2 rounded-full" style="width: 17%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between items-center mb-3">
-                                    <span class="text-xl font-bold text-green-600" id="currentAmountMobile">RM 425,000</span>
-                                    <span class="text-lg font-semibold text-gray-700">RM 2.5M</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                                         style="width: 17%" id="fundingBarMobile"></div>
-                                </div>
-                            </div>
 
-                            <!-- Join Investors CTA -->
-                            <div class="mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
-                                <h4 class="font-semibold mb-2 text-blue-800">Join Our Investors</h4>
-                                <p class="text-sm text-blue-700 mb-4 mobile-text-sm">Be part of Malaysia's established automotive success story</p>
-                                <button class="btn-primary w-full mobile-btn" onclick="openModal('expressInterestModal')">
-                                    <i class="fas fa-handshake mr-2"></i>
-                                    Invest Now
-                                </button>
+                                <!-- Join Investors CTA -->
+                                <div class="mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                                    <h4 class="font-semibold mb-2 text-blue-800">Join Our Investors</h4>
+                                    <p class="text-sm text-blue-700 mb-4">
+                                        Be part of Malaysia's established automotive success story
+                                    </p>
+                                    <button class="btn-primary w-full" onclick="openModal('expressInterestModal')">
+                                        <i class="fas fa-handshake mr-2"></i>
+                                        Invest Now
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Funding Progress -->
-                <div class="card p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
-                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <i class="fas fa-dollar-sign text-green-600"></i>
-                        Funding Progress
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between text-sm">
-                            <span>RM 425,000</span>
-                            <span>RM 2,500,000</span>
+                <!-- Main Content Area -->
+                <div class="lg:col-span-9 space-y-8 mobile-main mobile-main-content">
+                    <!-- Header with Logo -->
+                    <div class="text-center space-y-6">
+                        <!-- Premium Logo Section -->
+                        <div class="logo-container">
+                            <div class="text-center logo-text">
+                                <img
+                                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-dark-9WiugDaGUOfxX3rpvObKOi5SWgtMX7.png"
+                                    alt="Amazing G Automotive Logo"
+                                    class="company-logo mb-6"
+                                />
+                                <div class="text-center">
+                                    <p class="text-xl text-gray-700 font-bold mb-2">
+                                        <i class="fas fa-calendar-alt text-orange-600 mr-2"></i>
+                                        Established 2009 . 15 Years of Excellence
+                                    </p>
+                                    <p class="text-base text-orange-600 font-bold tracking-wide">
+                                        <i class="fas fa-map-marker-alt text-orange-600 mr-2"></i>
+                                        Malaysia's Trusted Automotive Partner
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-3">
-                            <div class="progress-bar" style="width: 17%"></div>
+
+                        <!-- Contact Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                            <a
+                                href="mailto:amazinggautomotive@gmail.com"
+                                class="btn-primary btn-medium"
+                            >
+                                <i class="fas fa-envelope mr-2"></i>
+                                Email
+                            </a>
+                            <a
+                                href="https://wa.me/601156636111"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2 btn-medium"
+                            >
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
                         </div>
-                        <p class="text-sm text-gray-600">
-                            17.0% funded • Investment opportunity open
+
+                        <span class="inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+                            Investment Opportunity
+                        </span>
+                        <h1 class="text-4xl font-bold text-gray-900">Used Car Dealership Expansion</h1>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Join Amazing G Automotive's proven 15-year track record in expanding into Malaysia's thriving used car
+                            dealership market
                         </p>
                     </div>
-                </div>
 
-                <div class="grid lg:grid-cols-3 gap-6">
-                    <!-- Main Content -->
-                    <div class="lg:col-span-2 space-y-6">
-                        <!-- Company Background -->
+                    <!-- Mobile Investment Progress (Hidden on Desktop) -->
+                    <div class="mobile-investment-progress mobile-compact" style="display: none">
                         <div class="card p-6">
                             <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                                <i class="fas fa-building"></i>
-                                Company Background
+                                <i class="fas fa-chart-line text-green-600"></i>
+                                Investment Progress
                             </h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <h4 class="font-semibold text-blue-900 mb-2">Amazing G Automotive Sdn. Bhd.</h4>
-                                    <p class="text-sm text-gray-600 mb-2">Malaysia | 15 Years in Operation</p>
-                                    <p class="text-gray-700 leading-relaxed mb-3">
-                                        Amazing G Automotive Sdn. Bhd. has proudly served the Malaysian automotive industry for over 15 years. Our established expertise includes:
+                            <!-- Mobile progress content (similar to desktop version) -->
+                            <div class="text-center mb-6">
+                                <div class="relative">
+                                    <div class="w-32 h-32 mx-auto mb-4 mobile-progress-circle">
+                                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8" />
+                                            <circle
+                                                cx="50"
+                                                cy="50"
+                                                r="45"
+                                                fill="none"
+                                                stroke="#10b981"
+                                                stroke-width="8"
+                                                stroke-dasharray="283"
+                                                stroke-dashoffset="235"
+                                                class="transition-all duration-1000 ease-out"
+                                            />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div class="text-center">
+                                                <div class="text-2xl font-bold text-green-600">17%</div>
+                                                <div class="text-xs text-gray-500 mobile-text-xs">Funded</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Mobile investment stats and CTA -->
+                                <div class="mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                                    <h4 class="font-semibold mb-2 text-blue-800">Join Our Investors</h4>
+                                    <p class="text-sm text-blue-700 mb-4 mobile-text-sm">
+                                        Be part of Malaysia's established automotive success story
                                     </p>
-                                    <ul class="space-y-2 text-sm text-gray-700">
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-paint-brush text-blue-600 mt-1"></i>
-                                            <span><strong>Car Painting & Knocking Specialist:</strong> Professional car painting and body repair services with skilled technicians and modern equipment</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-gavel text-blue-600 mt-1"></i>
-                                            <span><strong>Total Loss Cars Auction:</strong> Active participation in vehicle auctions, sourcing total loss vehicles for parts and resale</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-spray-can text-blue-600 mt-1"></i>
-                                            <span><strong>Paint Correction & Detailing:</strong> Expert paint restoration including scratch and swirl mark removal</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fas fa-car text-blue-600 mt-1"></i>
-                                            <span><strong>Car Coding & Interior Detailing:</strong> Latest tools for ECU coding and deep interior detailing for luxury vehicles</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="border-t pt-4">
-                                    <h4 class="font-semibold text-blue-900 mb-2">Amazing G Holding Sdn. Bhd.</h4>
-                                    <p class="text-gray-700 leading-relaxed mb-3">
-                                        Our holding company expands our investment reach with substantial assets:
-                                    </p>
-                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
-                                        <div>
-                                            <h5 class="font-medium text-gray-900 mb-2">Vehicle Assets:</h5>
-                                            <ul class="space-y-1 text-gray-700">
-                                                <li>• 15 Auction-bought vehicles</li>
-                                                <li>• Wedding & luxury car rentals</li>
-                                                <li>• Daily rental fleet</li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <h5 class="font-medium text-gray-900 mb-2">Real Estate:</h5>
-                                            <ul class="space-y-1 text-gray-700">
-                                                <li>• 1 Single storey factory (owned)</li>
-                                                <li>• 3 units 1.5 storey facilities</li>
-                                                <li>• Mystic KL Premium Club shares</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Business Objective -->
-                        <div class="card p-6">
-                            <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                                <i class="fas fa-chart-line"></i>
-                                New Business Vision - Used Car Dealership Expansion
-                            </h3>
-                            <p class="text-gray-700 leading-relaxed mb-4">
-                                We are inviting strategic investors to join us in launching a comprehensive used car dealership that leverages our 15 years of automotive expertise and existing assets.
-                            </p>
-
-                            <div class="bg-blue-50 p-4 rounded-lg mb-4">
-                                <h4 class="font-semibold text-blue-900 mb-2">Business Model - Multiple Revenue Streams:</h4>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex items-start gap-2">
-                                        <i class="fas fa-calendar-alt text-blue-600 mt-1"></i>
-                                        <div>
-                                            <strong>Lease-to-Own Program:</strong> Acquire auction cars at 20-30% below market value, restore and offer lease-to-own for 1-5 years
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <i class="fas fa-car text-blue-600 mt-1"></i>
-                                        <div>
-                                            <strong>Customized New Car Sales:</strong> Body kits, wraps, performance upgrades for premium niche market
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <i class="fas fa-credit-card text-blue-600 mt-1"></i>
-                                        <div>
-                                            <strong>In-House Credit Program:</strong> Direct financing with competitive interest rates and in-house credit management
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <i class="fas fa-key text-blue-600 mt-1"></i>
-                                        <div>
-                                            <strong>Rental Fleet Expansion:</strong> Daily rentals and event/wedding cars with national marketing partnerships
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Use of Funds -->
-                        <div class="card p-6">
-                            <h3 class="text-lg font-semibold mb-2">Use of Funds</h3>
-                            <p class="text-gray-600 mb-4">Strategic allocation for dealership expansion</p>
-                            <div class="space-y-4">
-                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-car text-gray-600"></i>
-                                        <span>Additional auction vehicle inventory</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-certificate text-gray-600"></i>
-                                        <span>Dealership licensing & legal compliance</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-mobile-alt text-gray-600"></i>
-                                        <span>Digital platform & mobile app development</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-dollar-sign text-gray-600"></i>
-                                        <span>Working capital & marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Scalability & Growth -->
-                        <div class="card p-6">
-                            <h3 class="text-lg font-semibold mb-4">Scalability & Growth Timeline</h3>
-                            <div class="space-y-4">
-                                <div class="border-l-4 border-blue-500 pl-4">
-                                    <h4 class="font-semibold text-gray-900">Expansion Plan:</h4>
-                                    <ul class="mt-2 space-y-1 text-sm text-gray-700">
-                                        <li>• Expand auction-sourced inventory</li>
-                                        <li>• Grow lease-to-own customer base via referrals</li>
-                                        <li>• Scale rental fleet for corporate clients</li>
-                                        <li>• Launch mobile app for bookings and payments</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-yellow-50 p-4 rounded-lg">
-                                    <h4 class="font-semibold text-yellow-800 mb-2">Competitive Advantages:</h4>
-                                    <ul class="space-y-1 text-sm text-yellow-700">
-                                        <li>• 15 years established reputation</li>
-                                        <li>• Existing asset base and facilities</li>
-                                        <li>• Integrated service offerings</li>
-                                        <li>• Proven auction sourcing expertise</li>
-                                    </ul>
+                                    <button class="btn-primary w-full mobile-btn" onclick="openModal('expressInterestModal')">
+                                        <i class="fas fa-handshake mr-2"></i>
+                                        Invest Now
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Sidebar (Desktop Only) -->
-                    <div class="space-y-6 desktop-only">
-                        <!-- Investment Details -->
+                    <!-- Mobile Investment Details (Hidden on Desktop) -->
+                    <div class="mobile-investment-details mobile-compact" style="display: none">
                         <div class="card p-6 border-blue-200 bg-blue-50">
                             <h3 class="text-lg font-semibold text-blue-900 mb-4">Investment Details</h3>
                             <div class="space-y-4">
@@ -764,8 +659,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- ROI Information -->
+                    <!-- Mobile Returns & Privileges (Hidden on Desktop) -->
+                    <div class="mobile-returns-privileges mobile-compact" style="display: none">
                         <div class="card p-6 border-green-200 bg-green-50">
                             <h3 class="text-lg font-semibold text-green-900 mb-4">Investor Returns & Privileges</h3>
                             <div class="space-y-4">
@@ -773,11 +670,11 @@
                                     <h4 class="font-semibold text-green-800 mb-2">Financial Returns:</h4>
                                     <div class="space-y-2 text-sm">
                                         <div class="flex justify-between">
-                                            <span class="text-green-700">If profits < RM300k:</span>
+                                            <span class="text-green-700">If profits &lt; RM300k:</span>
                                             <span class="font-semibold text-green-800">12% Dividend</span>
                                         </div>
                                         <div class="flex justify-between">
-                                            <span class="text-green-700">If profits > RM500k:</span>
+                                            <span class="text-green-700">If profits &gt; RM500k:</span>
                                             <span class="font-semibold text-green-800">18% Dividend</span>
                                         </div>
                                     </div>
@@ -803,18 +700,18 @@
                                             <span class="font-semibold">50% OFF</span>
                                         </div>
                                         <div class="text-xs text-green-600 mt-2">
-                                            + Discounts on car purchases based on share tier
+                                            � Discounts on car purchases based on share tier
                                         </div>
                                     </div>
                                 </div>
 
-                                <p class="text-xs text-green-700">
-                                    Returns paid annually with full profit-loss transparency
-                                </p>
+                                <p class="text-xs text-green-700">Returns paid annually with full profit-loss transparency</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Contact Information -->
+                    <!-- Mobile Meeting & Documents (Hidden on Desktop) -->
+                    <div class="mobile-meeting-docs mobile-compact" style="display: none">
                         <div class="card p-6">
                             <h3 class="text-lg font-semibold mb-4">Meeting & Documents</h3>
                             <div class="space-y-3">
@@ -824,11 +721,11 @@
                                 <div class="bg-gray-50 p-3 rounded-lg">
                                     <h4 class="font-medium text-gray-900 mb-2">Available Documents:</h4>
                                     <ul class="text-xs text-gray-700 space-y-1">
-                                        <li>• SSM registration & compliance</li>
-                                        <li>• Asset proof (factory, vehicles, shares)</li>
-                                        <li>• Business model canvas</li>
-                                        <li>• 12-month cash flow forecast</li>
-                                        <li>• Profit-sharing model breakdown</li>
+                                        <li>� SSM registration & compliance</li>
+                                        <li>� Asset proof (factory, vehicles, shares)</li>
+                                        <li>� Business model canvas</li>
+                                        <li>� 12-month cash flow forecast</li>
+                                        <li>� Profit-sharing model breakdown</li>
                                     </ul>
                                 </div>
                                 <button class="btn-outline w-full" onclick="openModal('scheduleMeetingModal')">
@@ -840,339 +737,373 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Mobile Investment Details & ROI (Hidden on Desktop) -->
-                <div class="space-y-6 mobile-compact" style="display: none;">
-                    <!-- Investment Details -->
-                    <div class="card p-6 border-blue-200 bg-blue-50">
-                        <h3 class="text-lg font-semibold text-blue-900 mb-4">Investment Details</h3>
+                    <!-- Funding Progress -->
+                    <div class="card p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
+                        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i class="fas fa-dollar-sign text-green-600"></i>
+                            Funding Progress
+                        </h3>
                         <div class="space-y-4">
-                            <div>
-                                <p class="text-sm text-blue-700 font-medium mobile-text-sm">Total Goal</p>
-                                <p class="text-2xl font-bold text-blue-900">RM 2,500,000</p>
+                            <div class="flex justify-between text-sm">
+                                <span>RM 425,000</span>
+                                <span>RM 2,500,000</span>
                             </div>
-                            <div>
-                                <p class="text-sm text-blue-700 font-medium mobile-text-sm">Minimum Investment</p>
-                                <p class="text-lg font-semibold text-blue-900">RM 25,000</p>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="progress-bar" style="width: 17%"></div>
                             </div>
-                            <div>
-                                <p class="text-sm text-blue-700 font-medium mobile-text-sm">Investment Type</p>
-                                <p class="text-blue-900 mobile-text-sm">Equity partnership with profit sharing</p>
-                            </div>
-                            <div>
-                                <p class="text-sm text-blue-700 font-medium mobile-text-sm">Business Track Record</p>
-                                <p class="text-blue-900 mobile-text-sm">15 years established operations</p>
-                            </div>
-                            <button class="btn-primary w-full mobile-btn" onclick="openModal('expressInterestModal')">
-                                Express Interest
-                            </button>
+                            <p class="text-sm text-gray-600">17.0% funded � Investment opportunity open</p>
                         </div>
                     </div>
 
-                    <!-- ROI Information -->
-                    <div class="card p-6 border-green-200 bg-green-50">
-                        <h3 class="text-lg font-semibold text-green-900 mb-4">Investor Returns & Privileges</h3>
-                        <div class="space-y-4">
-                            <div class="bg-white p-3 rounded-lg border border-green-200">
-                                <h4 class="font-semibold text-green-800 mb-2 mobile-text-sm">Financial Returns:</h4>
-                                <div class="space-y-2 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-green-700 mobile-text-sm">If profits < RM300k:</span>
-                                        <span class="font-semibold text-green-800 mobile-text-sm">12% Dividend</span>
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Main Content -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- Company Background -->
+                            <div class="card p-6">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-building text-blue-600"></i>
+                                    Company Background
+                                </h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-blue-900 mb-2">Amazing G Automotive Sdn. Bhd.</h4>
+                                        <p class="text-sm text-gray-600 mb-2">Malaysia � 15 Years in Operation</p>
+                                        <p class="text-gray-700 leading-relaxed mb-3">
+                                            Amazing G Automotive Sdn. Bhd. has proudly served the Malaysian automotive industry for over
+                                            15 years. Our established expertise includes:
+                                        </p>
+                                        <ul class="space-y-2 text-sm text-gray-700">
+                                            <li class="flex items-start gap-2">
+                                                <i class="fas fa-paint-brush text-blue-600 mt-1"></i>
+                                                <span>
+                                                    <strong>Car Painting & Knocking Specialist:</strong> Professional car painting and body
+                                                    repair services with skilled technicians and modern equipment
+                                                </span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="fas fa-gavel text-blue-600 mt-1"></i>
+                                                <span>
+                                                    <strong>Total Loss Cars Auction:</strong> Active participation in vehicle auctions,
+                                                    sourcing total loss vehicles for parts and resale
+                                                </span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="fas fa-spray-can text-blue-600 mt-1"></i>
+                                                <span>
+                                                    <strong>Paint Correction & Detailing:</strong> Expert paint restoration including scratch
+                                                    and swirl mark removal
+                                                </span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="fas fa-code text-blue-600 mt-1"></i>
+                                                <span>
+                                                    <strong>Car Coding & Interior Detailing:</strong> Latest tools for ECU coding and deep
+                                                    interior detailing for luxury vehicles
+                                                </span>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-green-700 mobile-text-sm">If profits > RM500k:</span>
-                                        <span class="font-semibold text-green-800 mobile-text-sm">18% Dividend</span>
+
+                                    <div class="border-t pt-4">
+                                        <h4 class="font-semibold text-blue-900 mb-2">Amazing G Holding Sdn. Bhd.</h4>
+                                        <p class="text-gray-700 leading-relaxed mb-3">
+                                            Our holding company expands our investment reach with substantial assets:
+                                        </p>
+                                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                            <div>
+                                                <h5 class="font-medium text-gray-900 mb-2">Vehicle Assets:</h5>
+                                                <ul class="space-y-1 text-gray-700">
+                                                    <li>� 15 Auction-bought vehicles</li>
+                                                    <li>� Wedding & luxury car rentals</li>
+                                                    <li>� Daily rental fleet</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-900 mb-2">Real Estate:</h5>
+                                                <ul class="space-y-1 text-gray-700">
+                                                    <li>� 1 Single storey factory (owned)</li>
+                                                    <li>� 3 units 1.5 storey facilities</li>
+                                                    <li>� Mystic KL Premium Club shares</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-white p-3 rounded-lg border border-green-200">
-                                <h4 class="font-semibold text-green-800 mb-2 mobile-text-sm">Investor Privileges:</h4>
-                                <div class="space-y-1 text-sm text-green-700">
-                                    <div class="flex justify-between">
-                                        <span class="mobile-text-sm">Car painting services:</span>
-                                        <span class="font-semibold mobile-text-sm">20% OFF</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="mobile-text-sm">Car detailing services:</span>
-                                        <span class="font-semibold mobile-text-sm">15% OFF</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="mobile-text-sm">Wedding car rentals:</span>
-                                        <span class="font-semibold mobile-text-sm">50% OFF</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="mobile-text-sm">Daily car rentals:</span>
-                                        <span class="font-semibold mobile-text-sm">50% OFF</span>
-                                    </div>
-                                    <div class="text-xs text-green-600 mt-2 mobile-text-xs">
-                                        + Discounts on car purchases based on share tier
+                            <!-- Business Objective -->
+                            <div class="card p-6">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-rocket text-blue-600"></i>
+                                    New Business Vision - Used Car Dealership Expansion
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    We are inviting strategic investors to join us in launching a comprehensive used car dealership
+                                    that leverages our 15 years of automotive expertise and existing assets.
+                                </p>
+
+                                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                    <h4 class="font-semibold text-blue-900 mb-2">Business Model - Multiple Revenue Streams:</h4>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex items-start gap-2">
+                                            <i class="fas fa-calendar-check text-blue-600 mt-1"></i>
+                                            <div>
+                                                <strong>Lease-to-Own Program:</strong> Acquire auction cars at 20-30% below market value,
+                                                restore and offer lease-to-own for 1-5 years
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <i class="fas fa-car-side text-blue-600 mt-1"></i>
+                                            <div>
+                                                <strong>Customized New Car Sales:</strong> Body kits, wraps, performance upgrades for
+                                                premium niche market
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <i class="fas fa-credit-card text-blue-600 mt-1"></i>
+                                            <div>
+                                                <strong>In-House Credit Program:</strong> Direct financing with competitive interest rates
+                                                and in-house credit management
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <i class="fas fa-key text-blue-600 mt-1"></i>
+                                            <div>
+                                                <strong>Rental Fleet Expansion:</strong> Daily rentals and event/wedding cars with national
+                                                marketing partnerships
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <p class="text-xs text-green-700 mobile-text-xs">
-                                Returns paid annually with full profit-loss transparency
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mobile Meeting & Documents (Hidden on Desktop) -->
-                <div class="mobile-meeting-docs mobile-compact" style="display: none;">
-                    <div class="card p-6">
-                        <h3 class="text-lg font-semibold mb-4">Meeting & Documents</h3>
-                        <div class="space-y-3">
-                            <p class="text-sm text-gray-600 mobile-text-sm">
-                                For serious investors, we provide comprehensive documentation during meetings.
-                            </p>
-                            <div class="bg-gray-50 p-3 rounded-lg">
-                                <h4 class="font-medium text-gray-900 mb-2 mobile-text-sm">Available Documents:</h4>
-                                <ul class="text-xs text-gray-700 space-y-1 mobile-text-xs">
-                                    <li>• SSM registration & compliance</li>
-                                    <li>• Asset proof (factory, vehicles, shares)</li>
-                                    <li>• Business model canvas</li>
-                                    <li>• 12-month cash flow forecast</li>
-                                    <li>• Profit-sharing model breakdown</li>
-                                </ul>
+                            <!-- Use of Funds -->
+                            <div class="card p-6">
+                                <h3 class="text-lg font-semibold mb-2 text-black flex items-center gap-2">
+                                    <i class="fas fa-coins text-blue-600"></i>
+                                    Use of Funds
+                                </h3>
+                                <p class="text-black mb-4">Strategic allocation for dealership expansion</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-center p-3 bg-white rounded-lg border border-gray-200">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-car text-gray-600"></i>
+                                            <span class="text-black">Additional auction vehicle inventory</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-white rounded-lg border border-gray-200">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-certificate text-gray-600"></i>
+                                            <span class="text-black">Dealership licensing & legal compliance</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-white rounded-lg border border-gray-200">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-mobile-alt text-gray-600"></i>
+                                            <span class="text-black">Digital platform & mobile app development</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-white rounded-lg border border-gray-200">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-dollar-sign text-gray-600"></i>
+                                            <span class="text-black">Working capital & marketing</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="btn-outline w-full mobile-btn" onclick="openModal('scheduleMeetingModal')">
-                                Schedule a Meeting
-                            </button>
-                            <button class="btn-outline w-full mobile-btn" onclick="viewAuctionInventory()">
-                                Auction Car Inventory
-                            </button>
+
+                            <!-- Scalability & Growth -->
+                            <div class="card p-6">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                    <i class="fas fa-chart-line text-blue-600"></i>
+                                    Scalability & Growth Timeline
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-blue-500 pl-4">
+                                        <h4 class="font-semibold text-gray-900">Expansion Plan:</h4>
+                                        <ul class="mt-2 space-y-1 text-sm text-gray-700">
+                                            <li>� Expand auction-sourced inventory</li>
+                                            <li>� Grow lease-to-own customer base via referrals</li>
+                                            <li>� Scale rental fleet for corporate clients</li>
+                                            <li>� Launch mobile app for bookings and payments</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-yellow-800 mb-2">Competitive Advantages:</h4>
+                                        <ul class="space-y-1 text-sm text-yellow-700">
+                                            <li>� 15 years established reputation</li>
+                                            <li>� Existing asset base and facilities</li>
+                                            <li>� Integrated service offerings</li>
+                                            <li>� Proven auction sourcing expertise</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Sidebar (Desktop Only) -->
+                        <div class="space-y-6 desktop-only">
+                            <!-- Investment Details -->
+                            <div class="card p-6 border-blue-200 bg-blue-50">
+                                <h3 class="text-lg font-semibold text-blue-900 mb-4">Investment Details</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-sm text-blue-700 font-medium">Total Goal</p>
+                                        <p class="text-2xl font-bold text-blue-900">RM 2,500,000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-blue-700 font-medium">Minimum Investment</p>
+                                        <p class="text-lg font-semibold text-blue-900">RM 25,000</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-blue-700 font-medium">Investment Type</p>
+                                        <p class="text-blue-900">Equity partnership with profit sharing</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-blue-700 font-medium">Business Track Record</p>
+                                        <p class="text-blue-900">15 years established operations</p>
+                                    </div>
+                                    <button class="btn-primary w-full" onclick="openModal('expressInterestModal')">
+                                        Express Interest
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ROI Information -->
+                            <div class="card p-6 border-green-200 bg-green-50">
+                                <h3 class="text-lg font-semibold text-green-900 mb-4">Investor Returns & Privileges</h3>
+                                <div class="space-y-4">
+                                    <div class="bg-white p-3 rounded-lg border border-green-200">
+                                        <h4 class="font-semibold text-green-800 mb-2">Financial Returns:</h4>
+                                        <div class="space-y-2 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="text-green-700">If profits &lt; RM300k:</span>
+                                                <span class="font-semibold text-green-800">12% Dividend</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-green-700">If profits &gt; RM500k:</span>
+                                                <span class="font-semibold text-green-800">18% Dividend</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white p-3 rounded-lg border border-green-200">
+                                        <h4 class="font-semibold text-green-800 mb-2">Investor Privileges:</h4>
+                                        <div class="space-y-1 text-sm text-green-700">
+                                            <div class="flex justify-between">
+                                                <span>Car painting services:</span>
+                                                <span class="font-semibold">20% OFF</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Car detailing services:</span>
+                                                <span class="font-semibold">15% OFF</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Wedding car rentals:</span>
+                                                <span class="font-semibold">50% OFF</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Daily car rentals:</span>
+                                                <span class="font-semibold">50% OFF</span>
+                                            </div>
+                                            <div class="text-xs text-green-600 mt-2">
+                                                � Discounts on car purchases based on share tier
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-xs text-green-700">Returns paid annually with full profit-loss transparency</p>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="card p-6">
+                                <h3 class="text-lg font-semibold mb-4">Meeting & Documents</h3>
+                                <div class="space-y-3">
+                                    <p class="text-sm text-gray-600">
+                                        For serious investors, we provide comprehensive documentation during meetings.
+                                    </p>
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-medium text-gray-900 mb-2">Available Documents:</h4>
+                                        <ul class="text-xs text-gray-700 space-y-1">
+                                            <li>� SSM registration & compliance</li>
+                                            <li>� Asset proof (factory, vehicles, shares)</li>
+                                            <li>� Business model canvas</li>
+                                            <li>� 12-month cash flow forecast</li>
+                                            <li>� Profit-sharing model breakdown</li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn-outline w-full" onclick="openModal('scheduleMeetingModal')">
+                                        Schedule a Meeting
+                                    </button>
+                                    <button class="btn-outline w-full" onclick="viewAuctionInventory()">
+                                        Auction Car Inventory
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Call to Action -->
-                <div class="card p-8 text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-                    <h3 class="text-2xl font-bold mb-4">Join Malaysia's Established Automotive Success Story</h3>
-                    <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
-                        Partner with Amazing G Automotive's proven 15-year track record. Your investment supports expansion into Malaysia's thriving used car market with multiple revenue streams and exclusive investor privileges.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="btn-secondary text-lg px-6 py-3" onclick="openModal('businessPlanModal')">
-                            Request Full Proposal
-                        </button>
-                        <button class="btn-outline text-lg px-6 py-3 text-white border-white hover:bg-white hover:text-blue-700" onclick="openModal('scheduleConsultationModal')">
-                            Schedule Consultation
-                        </button>
+                    <!-- Call to Action -->
+                    <div class="card p-8 text-center bg-gradient-to-r from-blue-100 to-blue-200 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-4 text-black">Join Malaysia's Established Automotive Success Story</h3>
+                        <p class="text-gray-800 mb-6 max-w-2xl mx-auto">
+                            Partner with Amazing G Automotive's proven 15-year track record. Your investment supports expansion
+                            into Malaysia's thriving used car market with multiple revenue streams and exclusive investor
+                            privileges.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button class="btn-secondary text-lg px-6 py-3" onclick="openModal('businessPlanModal')">
+                                Request Full Proposal
+                            </button>
+                            <button
+                                class="btn-outline text-lg px-6 py-3 text-white border-white hover:bg-white hover:text-blue-700"
+                                onclick="openModal('scheduleConsultationModal')"
+                            >
+                                Schedule Consultation
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Business Plan Modal -->
-        <div id="businessPlanModal" class="modal">
-            <div class="modal-content business-plan-modal">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">Amazing G Automotive - Complete Business Plan</h2>
-                    <button onclick="closeModal('businessPlanModal')" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="business-plan-content">
-                    <div class="space-y-6 text-sm leading-relaxed">
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">COMPANY BACKGROUND</h3>
-
-                            <div class="mb-4">
-                                <h4 class="font-semibold text-blue-800 mb-2">1. AMAZING G AUTOMOTIVE SDN. BHD.</h4>
-                                <p class="text-gray-600 mb-2">(Malaysia | 15 Years in Operation)</p>
-                                <p class="mb-3">Amazing G Automotive Sdn. Bhd. has proudly served the Malaysian automotive industry for over 15 years. Our company is well established in:</p>
-                                <ul class="space-y-2 ml-4">
-                                    <li><strong>• Car Painting & Knocking Specialist:</strong> We offer professional car painting and body repair services with skilled technicians and modern equipment.</li>
-                                    <li><strong>• Total Loss Cars Auction:</strong> We actively participate in vehicle auctions, sourcing total loss vehicles for parts and resale purposes.</li>
-                                    <li><strong>• Paint Correction & Detailing:</strong> We provide expert paint restoration services including scratch and swirl mark removal, restoring vehicle exteriors to pristine condition.</li>
-                                    <li><strong>• Coding & Interior Detailing:</strong> Our team is equipped with the latest tools for ECU coding and deep interior detailing for luxury and performance vehicles.</li>
-                                </ul>
-                                <p class="mt-3">These services have helped us build a loyal customer base and develop expertise that sets us apart in the automotive service industry.</p>
-                            </div>
-
-                            <div class="mb-4">
-                                <h4 class="font-semibold text-blue-800 mb-2">2. AMAZING G HOLDING SDN. BHD.</h4>
-                                <p class="mb-3">Amazing G Holding Sdn. Bhd. was formed to expand our investment and operational reach within the automotive and related industries. Current assets and operations include:</p>
-                                <ul class="space-y-2 ml-4">
-                                    <li><strong>• 15 Auction-Bought Vehicles:</strong> Strategically selected for restoration, resale, or rental operations.</li>
-                                    <li>
-                                        <strong>• Real Estate Holdings:</strong>
-                                        <ul class="ml-4 mt-1">
-                                            <li>○ 1 unit Single Storey Light Industry Factory (Owned)</li>
-                                            <li>○ 3 units of 1.5 Storey Facilities (rented for our restoration facilities)</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>• Mystic KL Premium Club – Shareholding Partner:</strong> A lifestyle and networking club where we hold equity, contributing to both revenue and strategic networking.</li>
-                                    <li>
-                                        <strong>• Wedding & Luxury Car Rentals:</strong>
-                                        <ul class="ml-4 mt-1">
-                                            <li>○ Fair Lady</li>
-                                            <li>○ Mini Cooper</li>
-                                            <li>○ Toyota Alphard</li>
-                                            <li>○ BMW 5 Series</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <strong>• Daily Rental Fleet:</strong>
-                                        <ul class="ml-4 mt-1">
-                                            <li>○ Toyota Yaris 2023</li>
-                                            <li>○ Toyota Vios 2015</li>
-                                            <li>○ BMW 2014</li>
-                                            <li>○ Toyota Vios 2014</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <p class="mt-3">These ventures provide a strong asset base and consistent cash flow to support our expansion.</p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">NEW BUSINESS VISION – USED CAR DEALERSHIP EXPANSION</h3>
-                            <p class="mb-3">We are now inviting strategic investors to join us in launching a new used car dealership business. This venture will combine our existing automotive expertise and assets to:</p>
-                            <ul class="space-y-1 ml-4">
-                                <li>• Establish a fully licensed used car dealership</li>
-                                <li>• Renovate and operate from the owned single-storey factory unit</li>
-                                <li>• Leverage existing vehicle inventory from auction acquisitions</li>
-                                <li>• Offer value-added services such as car painting, detailing, and vehicle rentals</li>
-                                <li>• Integrate wedding and luxury car rentals as a unique revenue stream</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">BUSINESS MODEL – DEALERSHIP STRATEGY</h3>
-                            <p class="mb-3">We are launching a modern used car dealership that combines multiple income streams for stronger returns and flexibility. Here's how we're proceeding:</p>
-
-                            <div class="space-y-4">
-                                <div>
-                                    <h4 class="font-semibold text-blue-800 mb-2">1. Lease-to-Own Program</h4>
-                                    <p class="mb-2">We acquire auction cars at 20–30% below market value. These units will be restored and offered under a lease-to-own structure:</p>
-                                    <ul class="space-y-1 ml-4">
-                                        <li>• Customers pay monthly for 1–5 years</li>
-                                        <li>• Ownership is transferred after full payment</li>
-                                        <li>• This model targets customers who may not qualify for bank loans</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-semibold text-blue-800 mb-2">2. Customized New Car Sales</h4>
-                                    <p class="mb-2">We offer customization for new car models (e.g. body kits, wraps, performance upgrades) and resell to a premium niche:</p>
-                                    <ul class="space-y-1 ml-4">
-                                        <li>• Ideal for customers seeking unique or personalized vehicles</li>
-                                        <li>• Higher margins compared to standard used car sales</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-semibold text-blue-800 mb-2">3. In-House Credit Program</h4>
-                                    <p class="mb-2">We finance customers directly and charge interest on monthly installments. This reduces reliance on external credit providers and increases dealership profit:</p>
-                                    <ul class="space-y-1 ml-4">
-                                        <li>• Competitive but profitable interest rates</li>
-                                        <li>• Credit checks managed in-house</li>
-                                        <li>• Payments collected monthly (with options for auto-debit)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">RENTAL FLEET EXPANSION</h3>
-                            <p class="mb-3">To strengthen recurring income, we are expanding our rental operations:</p>
-                            <ul class="space-y-1 ml-4">
-                                <li>• <strong>Daily Rentals:</strong> Using reliable auction cars (Yaris, Vios, BMW, etc.)</li>
-                                <li>• <strong>Event & Wedding Cars:</strong> Fair Lady, Alphard, BMW 5 Series, etc.</li>
-                                <li>• <strong>Marketing Partnership:</strong> We'll collaborate with a national rental marketing platform to increase visibility and bookings</li>
-                            </ul>
-                            <p class="mt-3">This model delivers:</p>
-                            <ul class="space-y-1 ml-4">
-                                <li>• Recurring cash flow from rentals</li>
-                                <li>• Reduced CAPEX due to discounted car sourcing</li>
-                                <li>• Synergy with detailing and repainting units (self-maintenance)</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">INVESTOR RETURNS & PRIVILEGES</h3>
-                            <p class="mb-3">To reward early-stage investors, we are offering both financial returns and exclusive usage benefits:</p>
-
-                            <div class="bg-green-50 p-4 rounded-lg mb-3">
-                                <h4 class="font-semibold text-green-800 mb-2">✅ Financial Returns:</h4>
-                                <ul class="space-y-1 ml-4">
-                                    <li>• <strong>12% Dividend</strong> if profits are below RM100,000</li>
-                                    <li>• <strong>18% Dividend</strong> if profits exceed RM100,000</li>
-                                </ul>
-                                <p class="mt-2 text-sm">Returns will be paid annually with full profit-loss transparency.</p>
-                            </div>
-
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-blue-800 mb-2">✅ Investor Privileges:</h4>
-                                <p class="mb-2">Investors will enjoy major discounts across all services:</p>
-                                <ul class="space-y-1 ml-4">
-                                    <li>• 🎨 <strong>20% OFF</strong> all car painting services</li>
-                                    <li>• ✨ <strong>15% OFF</strong> car detailing services</li>
-                                    <li>• 💒 <strong>50% OFF</strong> wedding car rentals</li>
-                                    <li>• 🚗 <strong>50% OFF</strong> daily car rentals</li>
-                                    <li>• 💰 <strong>Discount on car purchases</strong> from our dealership (amount based on share tier)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">SCALABILITY & GROWTH</h3>
-                            <p class="mb-3">This dealership is designed to scale within 12–18 months:</p>
-                            <ul class="space-y-1 ml-4">
-                                <li>• Add more auction-sourced inventory</li>
-                                <li>• Expand lease-to-own base via referrals & promotions</li>
-                                <li>• Grow rental fleet and open to corporate clients</li>
-                                <li>• Launch mobile app for bookings, credit payments, and support</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-blue-900 mb-3">MEETING & SUPPORTING DOCUMENTS</h3>
-                            <p class="mb-3">For serious investors, we provide the following during meetings:</p>
-                            <ul class="space-y-1 ml-4">
-                                <li>• SSM registration & compliance documents</li>
-                                <li>• Asset proof (factory, vehicles, club shares)</li>
-                                <li>• Business model canvas</li>
-                                <li>• 12-month cash flow forecast</li>
-                                <li>• Profit-sharing model breakdown</li>
-                            </ul>
-                            <p class="mt-4 text-center font-semibold text-blue-900">Join us in driving the future of automotive excellence.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-3 mt-6">
-                    <button onclick="closeModal('businessPlanModal')" class="btn-outline flex-1">Close</button>
-                    <button onclick="downloadBusinessPlan()" class="btn-primary flex-1">Download PDF</button>
-                </div>
-            </div>
-        </div>
-
+        <!-- Modals -->
         <!-- Express Interest Modal -->
         <div id="expressInterestModal" class="modal">
             <div class="modal-content">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold">Express Investment Interest</h2>
-                    <button onclick="closeModal('expressInterestModal')" class="text-gray-500 hover:text-gray-700">
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <form onsubmit="submitExpressInterest(event)">
+                <form onsubmit="handleExpressInterest(event)">
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="text"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                            <input type="email" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="email"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                            <input type="tel" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="tel"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Investment Amount (RM)</label>
@@ -1185,12 +1116,20 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your investment goals..."></textarea>
+                            <textarea
+                                rows="3"
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Tell us about your investment goals..."
+                            ></textarea>
                         </div>
                     </div>
                     <div class="flex gap-3 mt-6">
-                        <button type="button" onclick="closeModal('expressInterestModal')" class="btn-outline flex-1">Cancel</button>
-                        <button type="submit" class="btn-primary flex-1">Submit Interest</button>
+                        <button type="button" onclick="closeModal()" class="btn-outline flex-1">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-primary flex-1">
+                            Submit Interest
+                        </button>
                     </div>
                 </form>
             </div>
@@ -1201,27 +1140,42 @@
             <div class="modal-content">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold">Schedule a Meeting</h2>
-                    <button onclick="closeModal('scheduleMeetingModal')" class="text-gray-500 hover:text-gray-700">
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <form onsubmit="submitScheduleMeeting(event)">
+                <form onsubmit="handleScheduleMeeting(event)">
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="text"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                            <input type="email" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="email"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date *</label>
-                            <input type="date" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="date"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time *</label>
-                            <select required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <select
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            >
                                 <option value="">Select time</option>
                                 <option>9:00 AM</option>
                                 <option>10:00 AM</option>
@@ -1233,7 +1187,10 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Meeting Type *</label>
-                            <select required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <select
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            >
                                 <option value="">Select type</option>
                                 <option>Video Call (Zoom/Teams)</option>
                                 <option>Phone Call</option>
@@ -1242,59 +1199,12 @@
                         </div>
                     </div>
                     <div class="flex gap-3 mt-6">
-                        <button type="button" onclick="closeModal('scheduleMeetingModal')" class="btn-outline flex-1">Cancel</button>
-                        <button type="submit" class="btn-primary flex-1">Schedule Meeting</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Request Proposal Modal -->
-        <div id="requestProposalModal" class="modal">
-            <div class="modal-content">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">Request Full Proposal</h2>
-                    <button onclick="closeModal('requestProposalModal')" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <form onsubmit="submitRequestProposal(event)">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                            <input type="email" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Company/Organization</label>
-                            <input type="text" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Investor Type *</label>
-                            <select required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option value="">Select type</option>
-                                <option>Individual Investor</option>
-                                <option>Investment Fund</option>
-                                <option>Corporate Investor</option>
-                                <option>Family Office</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Investment Range (RM)</label>
-                            <select class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option>RM 25,000 - RM 100,000</option>
-                                <option>RM 100,000 - RM 250,000</option>
-                                <option>RM 250,000 - RM 500,000</option>
-                                <option>RM 500,000+</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex gap-3 mt-6">
-                        <button type="button" onclick="closeModal('requestProposalModal')" class="btn-outline flex-1">Cancel</button>
-                        <button type="submit" class="btn-primary flex-1">Request Proposal</button>
+                        <button type="button" onclick="closeModal()" class="btn-outline flex-1">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-primary flex-1">
+                            Schedule Meeting
+                        </button>
                     </div>
                 </form>
             </div>
@@ -1305,23 +1215,34 @@
             <div class="modal-content">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold">Schedule Free Consultation</h2>
-                    <button onclick="closeModal('scheduleConsultationModal')" class="text-gray-500 hover:text-gray-700">
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <form onsubmit="submitScheduleConsultation(event)">
+                <form onsubmit="handleScheduleConsultation(event)">
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="text"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                            <input type="email" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="email"
+                                required
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input
+                                type="tel"
+                                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Time Zone</label>
@@ -1335,106 +1256,198 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">Topics to Discuss</label>
                             <div class="space-y-2">
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2"> Business model and strategy
+                                    <input type="checkbox" class="mr-2" /> Business model and strategy
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2"> Financial projections
+                                    <input type="checkbox" class="mr-2" /> Financial projections
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2"> Investment terms
+                                    <input type="checkbox" class="mr-2" /> Investment terms
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2"> Asset verification
+                                    <input type="checkbox" class="mr-2" /> Asset verification
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="flex gap-3 mt-6">
-                        <button type="button" onclick="closeModal('scheduleConsultationModal')" class="btn-outline flex-1">Cancel</button>
-                        <button type="submit" class="btn-primary flex-1">Schedule Consultation</button>
+                        <button type="button" onclick="closeModal()" class="btn-outline flex-1">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-primary flex-1">
+                            Schedule Consultation
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <!-- Toast Notification -->
-        <div id="toast" class="toast">
-            <span id="toastMessage"></span>
+        <!-- Business Plan Modal -->
+        <div id="businessPlanModal" class="modal">
+            <div class="modal-content business-plan-modal">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Amazing G Automotive - Complete Business Plan</h2>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="business-plan-content">
+                    <div class="space-y-6 text-sm leading-relaxed">
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-900 mb-3">COMPANY BACKGROUND</h3>
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-blue-800 mb-2">1. AMAZING G AUTOMOTIVE SDN. BHD.</h4>
+                                <p class="text-gray-600 mb-2">(Malaysia � 15 Years in Operation)</p>
+                                <p class="mb-3">
+                                    Amazing G Automotive Sdn. Bhd. has proudly served the Malaysian automotive industry for over 15
+                                    years. Our company is well established in:
+                                </p>
+                                <ul class="space-y-2 ml-4">
+                                    <li>
+                                        <strong>� Car Painting & Knocking Specialist:</strong> We offer professional car painting and
+                                        body repair services with skilled technicians and modern equipment.
+                                    </li>
+                                    <li>
+                                        <strong>� Total Loss Cars Auction:</strong> We actively participate in vehicle auctions,
+                                        sourcing total loss vehicles for parts and resale purposes.
+                                    </li>
+                                    <li>
+                                        <strong>� Paint Correction & Detailing:</strong> We provide expert paint restoration services
+                                        including scratch and swirl mark removal, restoring vehicle exteriors to pristine condition.
+                                    </li>
+                                    <li>
+                                        <strong>� Coding & Interior Detailing:</strong> Our team is equipped with the latest tools for
+                                        ECU coding and deep interior detailing for luxury and performance vehicles.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Additional business plan content would continue here -->
+                    </div>
+                </div>
+                <div class="flex gap-3 mt-6">
+                    <button onclick="closeModal()" class="btn-outline flex-1">
+                        Close
+                    </button>
+                    <button onclick="downloadBusinessPlan()" class="btn-primary flex-1">
+                        Download PDF
+                    </button>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <script>
-            // Modal Functions
-            function openModal(modalId) {
-                document.getElementById(modalId).classList.add('show');
+    <script>
+        // Global variables
+        let activeModal = null;
+        let progressPercentage = 0;
+        let investorCount = 0;
+        let currentAmount = 0;
+
+        // Initialize animations on page load
+        window.addEventListener('load', function() {
+            // Animate progress percentage
+            setTimeout(() => {
+                progressPercentage = 17;
+                document.getElementById('progress-percentage').textContent = progressPercentage + '%';
+                
+                // Update progress circle
+                const circle = document.getElementById('progress-circle');
+                const offset = 283 - (283 * progressPercentage) / 100;
+                circle.style.strokeDashoffset = offset;
+                
+                // Update progress bar
+                document.getElementById('progress-bar').style.width = progressPercentage + '%';
+            }, 500);
+
+            // Animate investor count
+            setTimeout(() => {
+                let count = 0;
+                const increment = () => {
+                    if (count < 5) {
+                        count++;
+                        document.getElementById('investor-count').textContent = count;
+                        setTimeout(increment, 100);
+                    }
+                };
+                increment();
+            }, 800);
+
+            // Animate current amount
+            setTimeout(() => {
+                let amount = 0;
+                const increment = () => {
+                    if (amount < 425000) {
+                        amount += 8500;
+                        document.getElementById('current-amount').textContent = 'RM ' + amount.toLocaleString();
+                        setTimeout(increment, 50);
+                    }
+                };
+                increment();
+            }, 1000);
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            activeModal = modalId;
+            document.getElementById(modalId).classList.add('show');
+        }
+
+        function closeModal() {
+            if (activeModal) {
+                document.getElementById(activeModal).classList.remove('show');
+                activeModal = null;
             }
+        }
 
-            function closeModal(modalId) {
-                document.getElementById(modalId).classList.remove('show');
-            }
+        // Toast notification function
+        function showToastMessage(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
 
-            // Close modal when clicking outside
-            window.onclick = function (event) {
-                if (event.target.classList.contains('modal')) {
-                    event.target.classList.remove('show');
-                }
-            }
+        // Form handlers
+        function handleExpressInterest(event) {
+            event.preventDefault();
+            closeModal();
+            showToastMessage('Thank you for your interest! We will contact you within 24 hours to discuss the investment opportunity.');
+            event.target.reset();
+        }
 
-            // Toast Functions
-            function showToast(message) {
-                const toast = document.getElementById('toast');
-                const toastMessage = document.getElementById('toastMessage');
-                toastMessage.textContent = message;
-                toast.classList.add('show');
+        function handleScheduleMeeting(event) {
+            event.preventDefault();
+            closeModal();
+            showToastMessage('Meeting request submitted! You will receive a confirmation email with our available time slots.');
+            event.target.reset();
+        }
 
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 3000);
-            }
+        function handleScheduleConsultation(event) {
+            event.preventDefault();
+            closeModal();
+            showToastMessage('Consultation request submitted! We will contact you to schedule your free consultation and provide all necessary documentation.');
+            event.target.reset();
+        }
 
-            // Form Submission Functions
-            function submitExpressInterest(event) {
-                event.preventDefault();
-                closeModal('expressInterestModal');
-                showToast('Thank you for your interest! We will contact you within 24 hours to discuss the investment opportunity.');
-                event.target.reset();
-            }
+        // Other functions
+        function viewAuctionInventory() {
+            showToastMessage('Explore our Latest Auction Car Inventory! Please check back soon.');
+        }
 
-            function submitScheduleMeeting(event) {
-                event.preventDefault();
-                closeModal('scheduleMeetingModal');
-                showToast('Meeting request submitted! You will receive a confirmation email with our available time slots.');
-                event.target.reset();
-            }
-
-            function submitRequestProposal(event) {
-                event.preventDefault();
-                closeModal('requestProposalModal');
-                showToast('Full proposal request submitted! We will email you the complete business plan with all supporting documents within 2 business days.');
-                event.target.reset();
-            }
-
-            function submitScheduleConsultation(event) {
-                event.preventDefault();
-                closeModal('scheduleConsultationModal');
-                showToast('Consultation request submitted! We will contact you to schedule your free consultation and provide all necessary documentation.');
-                event.target.reset();
-            }
-
-            // Auction Car Inventory Function
-            function viewAuctionInventory() {
-                showToast('Explore our Latest Auction Car Inventory! Please check back soon.');
-            }
-
-            // Download Business Plan Function
-            function downloadBusinessPlan() {
-                showToast('Amazing G Automotive complete business plan download started! The comprehensive document includes our 15-year track record, detailed financial projections, and expansion strategy.');
-
-                // Create comprehensive business plan content
-                const businessPlanContent = `AMAZING G AUTOMOTIVE SDN. BHD.
+        function downloadBusinessPlan() {
+            showToastMessage('Amazing G Automotive complete business plan download started! The comprehensive document includes our 15-year track record, detailed financial projections, and expansion strategy.');
+            
+            const businessPlanContent = `AMAZING G AUTOMOTIVE SDN. BHD.
 USED CAR DEALERSHIP EXPANSION - COMPLETE BUSINESS PLAN
 
 COMPANY BACKGROUND:
-1. AMAZING G AUTOMOTIVE SDN. BHD. (Malaysia | 15 Years in Operation)
+1. AMAZING G AUTOMOTIVE SDN. BHD. (Malaysia � 15 Years in Operation)
 - Car Painting & Knocking Specialist: Professional services with skilled technicians
 - Total Loss Cars Auction: Active participation in vehicle auctions
 - Paint Correction & Detailing: Expert paint restoration services
@@ -1447,105 +1460,35 @@ COMPANY BACKGROUND:
 - Wedding & Luxury Car Rentals: Fair Lady, Mini Cooper, Toyota Alphard, BMW 5 Series
 - Daily Rental Fleet: Toyota Yaris 2023, Toyota Vios 2015, BMW 2014, Toyota Vios 2014
 
-NEW BUSINESS VISION – USED CAR DEALERSHIP EXPANSION:
+NEW BUSINESS VISION � USED CAR DEALERSHIP EXPANSION:
 - Establish fully licensed used car dealership
 - Renovate and operate from owned single-storey factory unit
 - Leverage existing vehicle inventory from auction acquisitions
 - Offer value-added services: car painting, detailing, vehicle rentals
 - Integrate wedding and luxury car rentals as unique revenue stream
 
-BUSINESS MODEL – DEALERSHIP STRATEGY:
-1. Lease-to-Own Program: Acquire auction cars 20-30% below market value
-2. Customized New Car Sales: Body kits, wraps, performance upgrades
-3. In-House Credit Program: Direct financing with competitive interest rates
-
-RENTAL FLEET EXPANSION:
-- Daily Rentals using reliable auction cars
-- Event & Wedding Cars with premium vehicles
-- Marketing Partnership with national rental platform
-
-INVESTOR RETURNS & PRIVILEGES:
-Financial Returns:
-- 12% Dividend if profits below RM100,000
-- 18% Dividend if profits exceed RM100,000
-
-Investor Privileges:
-- 20% OFF car painting services
-- 15% OFF car detailing services
-- 50% OFF wedding car rentals
-- 50% OFF daily car rentals
-- Discounts on car purchases based on share tier
-
-SCALABILITY & GROWTH (12-18 months):
-- Add more auction-sourced inventory
-- Expand lease-to-own base via referrals & promotions
-- Grow rental fleet for corporate clients
-- Launch mobile app for bookings and payments
-
-SUPPORTING DOCUMENTS AVAILABLE:
-- SSM registration & compliance documents
-- Asset proof (factory, vehicles, club shares)
-- Business model canvas
-- 12-month cash flow forecast
-- Profit-sharing model breakdown
-
 Contact Amazing G Automotive for detailed documentation and meeting arrangements.
 Join us in driving the future of automotive excellence.`;
 
-                // Simulate download
-                const link = document.createElement('a');
-                link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(businessPlanContent);
-                link.download = 'Amazing_G_Automotive_Complete_Business_Plan.txt';
-                link.click();
+            const link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(businessPlanContent);
+            link.download = 'Amazing_G_Automotive_Complete_Business_Plan.txt';
+            link.click();
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal();
             }
+        });
 
-            // Initialize progress bar animation
-            document.addEventListener('DOMContentLoaded', function () {
-                setTimeout(() => {
-                    const progressBar = document.querySelector('.progress-bar');
-                    if (progressBar) {
-                        progressBar.style.width = '17%';
-                    }
-                }, 500);
-
-                // Animate progress circle
-                setTimeout(() => {
-                    const circle = document.getElementById('progressCircle');
-                    if (circle) {
-                        circle.style.strokeDashoffset = '235'; // 17% of 283
-                    }
-
-                    const circleMobile = document.getElementById('progressCircleMobile');
-                    if (circleMobile) {
-                        circleMobile.style.strokeDashoffset = '235'; // 17% of 283
-                    }
-                }, 500);
-
-                // Animate counters
-                function animateCounter(elementId, targetValue, suffix = '') {
-                    const element = document.getElementById(elementId);
-                    if (!element) return;
-
-                    let currentValue = 0;
-                    const increment = targetValue / 50;
-                    const timer = setInterval(() => {
-                        currentValue += increment;
-                        if (currentValue >= targetValue) {
-                            currentValue = targetValue;
-                            clearInterval(timer);
-                        }
-                        element.textContent = Math.floor(currentValue) + suffix;
-                    }, 30);
-                }
-
-                // Start animations after a delay
-                setTimeout(() => {
-                    animateCounter('investorCounter', 5);
-                    animateCounter('percentageCounter', 17, '%');
-                    animateCounter('investorCounterMobile', 5);
-                    animateCounter('percentageCounterMobile', 17, '%');
-                }, 800);
-            });
-        </script>
+        // Close modal with Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && activeModal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
