@@ -1,0 +1,212 @@
+/*
+  Project theme overrides (loaded after style.css)
+  - Primary accent: neon green (from reference)
+  - Global background: dark
+*/
+
+:root {
+  --ag-primary: #b7ff00;
+  --ag-primary-hover: #9be600;
+
+  --ag-bg: #070b0c;
+  --ag-surface: #0f1517;
+  --ag-surface-2: #121a1c;
+
+  --ag-text: #e8eef2;
+  --ag-muted: #aab4bb;
+  --ag-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Base */
+html,
+body {
+  background-color: var(--ag-bg) !important;
+}
+
+body {
+  color: var(--ag-muted);
+}
+
+.wrapper {
+  background-color: transparent !important;
+}
+
+::selection {
+  background-color: var(--ag-primary);
+  color: #071007;
+}
+
+/* Links */
+a {
+  color: var(--ag-primary);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--ag-primary-hover);
+}
+
+/* Section backgrounds (template uses bg-white/bg-gray heavily) */
+.bg-white,
+.bg-gray2 {
+  background-color: var(--ag-bg) !important;
+}
+
+.bg-gray {
+  background-color: var(--ag-surface) !important;
+}
+
+/* Headings / text (exclude hero which is already styled for contrast) */
+.section:not(#hero) h1,
+.section:not(#hero) h2,
+.section:not(#hero) h3,
+.section:not(#hero) h4,
+.section:not(#hero) h5,
+.section:not(#hero) h6 {
+  color: var(--ag-text);
+}
+
+.section:not(#hero) p {
+  color: var(--ag-muted);
+}
+
+/* Primary accents */
+.bg-theme {
+  background-color: var(--ag-primary) !important;
+}
+
+.bg-overlay-theme:before {
+  background-color: var(--ag-primary) !important;
+}
+
+.feature-panel .feature--icon {
+  color: var(--ag-primary);
+}
+
+.portfolio-filter ul li a:hover,
+.portfolio-filter ul li a.active-filter {
+  color: var(--ag-primary) !important;
+}
+
+/* Portfolio grid: hover overlay (title/+ box) → green */
+.portfolio--img .portfolio--hover {
+  background-color: var(--ag-primary) !important;
+}
+.portfolio--hover h6,
+.portfolio--hover h4 {
+  color: #071007 !important;
+}
+.portfolio-2 .portfolio--hover h6 a {
+  color: #071007 !important;
+}
+.portfolio-2 .portfolio--hover h6 a:hover {
+  color: rgba(7, 16, 7, 0.85) !important;
+}
+.portfolio--zoom a:before,
+.portfolio--zoom a:after {
+  background-color: #071007 !important;
+}
+
+.footer .widget--social a:hover {
+  color: var(--ag-primary);
+}
+
+/* Buttons */
+.btn--primary {
+  background-color: var(--ag-primary);
+  border-color: var(--ag-primary);
+  color: #071007;
+}
+
+.btn--primary:active,
+.btn--primary:focus,
+.btn--primary:hover {
+  background-color: var(--ag-primary-hover);
+  border-color: var(--ag-primary-hover);
+  color: #071007;
+}
+
+.btn--bordered.btn--primary {
+  color: var(--ag-primary);
+  border-color: var(--ag-primary);
+}
+
+.btn--bordered.btn--primary:active,
+.btn--bordered.btn--primary:focus,
+.btn--bordered.btn--primary:hover {
+  color: #071007;
+  background-color: var(--ag-primary);
+  border-color: var(--ag-primary);
+}
+
+.btn--secondary:active,
+.btn--secondary:focus,
+.btn--secondary:hover,
+.btn--white:active,
+.btn--white:focus,
+.btn--white:hover {
+  background-color: var(--ag-primary) !important;
+  border-color: var(--ag-primary) !important;
+  color: #071007 !important;
+}
+
+/* Navbar (affix state was white in template; make it dark) */
+.header-fixed .affix {
+  background-color: rgba(7, 11, 12, 0.92) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ag-border);
+  box-shadow: none !important;
+}
+
+.header-fixed .navbar.affix .navbar-nav > li > a {
+  color: var(--ag-text) !important;
+}
+
+.header-fixed .navbar.affix .navbar-nav > li > a:hover,
+.header-fixed .navbar.affix .navbar-nav > li.active > a {
+  color: var(--ag-primary) !important;
+}
+
+/* Navbar hover in non-affix state (over hero) */
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  color: var(--ag-primary) !important;
+}
+
+/* Keep light logo in dark sticky header */
+.header-fixed .navbar.affix .logo-dark {
+  display: none !important;
+}
+
+.header-fixed .navbar.affix .logo-light {
+  display: inline-block !important;
+}
+
+/* Skills */
+.skills .progress {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.skills .progress-bar {
+  background-color: var(--ag-primary) !important;
+}
+
+.skills .progress-title .title,
+.skills .progress-title .value {
+  color: var(--ag-text) !important;
+}
+
+/* Footer (footer-8 was designed for light background) */
+.footer-8 .widget--info-box i {
+  color: var(--ag-primary) !important;
+}
+
+.footer-8 .widget--info-box h4 {
+  color: var(--ag-text) !important;
+}
+
+.footer-8 .footer-bar {
+  border-top: 1px solid var(--ag-border) !important;
+}
