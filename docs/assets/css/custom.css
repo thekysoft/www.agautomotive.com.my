@@ -80,8 +80,9 @@ a:active {
   background-color: var(--ag-primary) !important;
 }
 
-.feature-panel .feature--icon {
-  color: var(--ag-primary);
+.feature-panel .feature--icon,
+.feature-panel .feature--icon i {
+  color: var(--ag-primary) !important;
 }
 
 .portfolio-filter ul li a:hover,
@@ -184,7 +185,7 @@ a:active {
   display: inline-block !important;
 }
 
-/* Hamburger menu icon → green */
+/* Hamburger menu icon → green (base + inside theme’s media breakpoints) */
 .navbar-toggle .icon-bar {
   background-color: var(--ag-primary) !important;
 }
@@ -198,6 +199,18 @@ a:active {
 .navbar-toggle:hover .icon-bar,
 .navbar-toggle:focus .icon-bar {
   background-color: var(--ag-primary-hover) !important;
+}
+@media (max-width: 479px) {
+  .navbar-toggle .icon-bar { background-color: var(--ag-primary) !important; }
+  .navbar-toggle { border-color: var(--ag-primary) !important; }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar-toggle .icon-bar { background-color: var(--ag-primary) !important; }
+  .navbar-toggle { border-color: var(--ag-primary) !important; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-toggle .icon-bar { background-color: var(--ag-primary) !important; }
+  .navbar-toggle { border-color: var(--ag-primary) !important; }
 }
 
 /* Skills */
