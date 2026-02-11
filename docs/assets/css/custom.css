@@ -184,6 +184,22 @@ a:active {
   display: inline-block !important;
 }
 
+/* Hamburger menu icon → green */
+.navbar-toggle .icon-bar {
+  background-color: var(--ag-primary) !important;
+}
+.navbar-toggle {
+  border-color: var(--ag-primary) !important;
+}
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  border-color: var(--ag-primary-hover) !important;
+}
+.navbar-toggle:hover .icon-bar,
+.navbar-toggle:focus .icon-bar {
+  background-color: var(--ag-primary-hover) !important;
+}
+
 /* Skills */
 .skills .progress {
   background-color: rgba(255, 255, 255, 0.08) !important;
